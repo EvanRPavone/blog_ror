@@ -1,27 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container m-auto my-4">
+  <div class="bg-white pg-10 border rounded">
+      <div id="all-posts" class="tab-panel p-5">
+          <h1 class="text-xl"><strong>Posts</strong></h1>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+          <% @posts.each do |post| %>
+              <div class="flex flex-wrap items-center justify-start p-4 border-b-2 border-grey-100 mb-6">
+                  <div class="flex-1 flex justify-between">
+                      <div>
+                          <%= link_to post.title, post, class: "btn-link mr-4"%>
+                      </div>
+                  </div>
+              </div>
+              <%#= link_to "Delete Post", post, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-red ml-4" if admin? %>
+          <% end %>
+      </div>
+  </div>
+</div>

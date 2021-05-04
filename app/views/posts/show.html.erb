@@ -1,13 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="max-w-3xl my-10 m-auto">
+  <div class="p-10 bg-white border border-grey-200 rounded">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+    <div class="flex flex-wrap justify-between items-center mb-5">
+    <h1 class="text-xl"><strong><%= @post.title %></strong></h1>
+      <p class="text-sm"><strong>Email: </strong><%= @post.user.email %> | <strong>Name: </strong><%= @post.user.name %></p>
+      <%#= link_to "Delete Registration", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-red" if admin? %>
+    </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <div class="border p-6 bg-grey-200 mb-5 items-center justify-between">
+      <div class="justify-between items-center mb-5">
+        <p><%= @post.body %></p>
+      </div>
+    </div>
+
+    <h1 class="text-lg"><strong>Comments</strong></h1>
+    <hr class="border"/>
+
+    <% unless user_signed_in? %>
+      <div class="bg-grey-200 rounded p-4 mt-4 text-center">
+        <p class="text-sm text-grey-600"><%= link_to "Login", new_user_session_path, class: "btn-link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "btn-link"%> to comment.</p>
+      </div>
+    <% else %>
+      <%#= render 'comments/form' %>
+    <% end %>
+
+    <div id="comments">
+      <%#= render @trip.comments %>
+    </div>
+
+  </div>
+  <%= link_to 'Back', posts_path %>
+</div>
