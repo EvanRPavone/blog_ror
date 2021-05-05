@@ -3,7 +3,7 @@
 
     <div class="flex flex-wrap justify-between items-center mb-5">
     <h1 class="text-xl"><strong><%= @post.title %></strong></h1>
-      <p class="text-sm"><strong>Email: </strong><%= @post.user.email %> | <strong>Name: </strong><%= @post.user.name %></p>
+      <p class="text-sm"><strong>Email: </strong><%= @post.user.email %> | <strong>Name: </strong><%= @post.user.name %> | <strong>Views: </strong><%= @post.hits %></p>
       <%#= link_to "Delete Registration", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-red" if admin? %>
     </div>
 
@@ -16,17 +16,18 @@
     <h1 class="text-lg"><strong>Comments</strong></h1>
     <hr class="border"/>
 
+    <div id="comments">
+      <%= render @post.comments %>
+    </div>
+    
     <% unless user_signed_in? %>
       <div class="bg-grey-200 rounded p-4 mt-4 text-center">
         <p class="text-sm text-grey-600"><%= link_to "Login", new_user_session_path, class: "btn-link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "btn-link"%> to comment.</p>
       </div>
     <% else %>
-      <%#= render 'comments/form' %>
+      <%= render 'comments/form' %>
     <% end %>
 
-    <div id="comments">
-      <%#= render @trip.comments %>
-    </div>
 
   </div>
   <%= link_to 'Back', posts_path %>

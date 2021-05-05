@@ -3,12 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.sort_by_popularity('DESC')
   end
 
   # GET /posts/1 or /posts/1.json
   def show
-    # @comment = Comment.new
+    @post.punch(request)
+    @post = Post.find(params[:id])
   end
 
   # GET /posts/new
