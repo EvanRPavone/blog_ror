@@ -9,6 +9,9 @@
                       <div>
                           <%= link_to post.title, post, class: "btn-link mr-4"%>
                       </div>
+                      <div>
+                          <p><%= post.category %></p>
+                      </div>
                   </div>
               </div>
               <%#= link_to "Delete Post", post, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-red ml-4" if admin? %>

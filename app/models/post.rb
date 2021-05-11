@@ -3,4 +3,6 @@ class Post < ApplicationRecord
     belongs_to :user
     acts_as_punchable
     has_many :comments, dependent: :destroy
+
+    CATEGORIES=["Ruby on Rails", "JavaScript", "React", "Technology", "General", "Jobs"]
 end

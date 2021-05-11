@@ -21,6 +21,11 @@
     <%= form.rich_text_area :body, class: "input" %>
   </div>
 
+  <div class="input-group">
+    <%= form.label :category, class: "label" %>
+    <%= form.collection_select :category, Post::CATEGORIES, :to_s, :to_s, class: "select py-2 px-2 mr-2" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
