@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[ create edit update destroy ]
   before_action :set_post, only: %i[ show edit update destroy ]
+  # Add Authenticate User for create, update, destroy ^
 
   # GET /posts or /posts.json
   def index
@@ -67,6 +69,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :category, :user_id)
+      params.require(:post).permit(:title, :body, :topic, :user_id)
     end
 end

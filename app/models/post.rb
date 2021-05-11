@@ -4,5 +4,5 @@ class Post < ApplicationRecord
     acts_as_punchable
     has_many :comments, dependent: :destroy
 
-    CATEGORIES=["Ruby on Rails", "JavaScript", "React", "Technology", "General", "Jobs"]
+    TOPICS=["Ruby on Rails", "JavaScript", "React", "Technology", "General", "Jobs"]
 end

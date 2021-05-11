@@ -2,7 +2,6 @@
   <div class="bg-white pg-10 border rounded">
       <div id="all-posts" class="tab-panel p-5">
           <h1 class="text-xl"><strong>Posts</strong></h1>
-
           <% @posts.each do |post| %>
               <div class="flex flex-wrap items-center justify-start p-4 border-b-2 border-grey-100 mb-6">
                   <div class="flex-1 flex justify-between">
@@ -10,7 +9,7 @@
                           <%= link_to post.title, post, class: "btn-link mr-4"%>
                       </div>
                       <div>
-                          <p><%= post.category %></p>
+                          <p><%= post.topic %></p>
                       </div>
                   </div>
               </div>
