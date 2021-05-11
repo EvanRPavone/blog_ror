@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[ create edit update destroy ]
+  # makes sure a user is logged in before creating updating and destroying
   before_action :set_post, only: %i[ show edit update destroy ]
   # Add Authenticate User for create, update, destroy ^
 
